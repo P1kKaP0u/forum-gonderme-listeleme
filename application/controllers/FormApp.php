@@ -1,4 +1,4 @@
-<?php
+        <?php
 
 class FormApp extends CI_Controller {
 
@@ -61,5 +61,57 @@ class FormApp extends CI_Controller {
         $this->load->view("list", $viewData);
     }
 
+    public function delete($id)
+    {
+
+
+       // echo "delete metodu çalışıyor";
+       
+        $delete = $this->FormApp_Model->delete($id);
+        if ($delete)
+        {
+            redirect("formapp/listele");
+        }
+
+    }
+
+
+    public function edit($id)
+    {
+
+        //echo "gelen id değeri $id";
+
+        
+        
+        $datas = array(
+
+          "datas" => $this->FormApp_Model->getfor_edit($id)
+    );
+        $this->load->view("edit", $datas);
+    }
+
+
+
+    public function update($id)
+    {
+
+
+       // echo "$id update çalışıyor";
+
+        $data = array(
+            "name"      => $this->input->post("name"),
+            "email"     => $this->input->post("email"),  
+            "phone"     => $this->input->post("phone"),
+            "message"   => $this->input->post("message")
+        );
+
+
+        $update = $this->FormApp_Model->update($id,$data);
+        if ($update)
+        {
+            redirect("formapp/listele");
+        }
+        
+    }
 
 }
