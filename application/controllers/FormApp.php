@@ -8,8 +8,10 @@ class FormApp extends CI_Controller {
         /* Kullanılacak model çekilir */
         $this->load->model("FormApp_Model");
 
+
     }
 
+    /* form view ekrana basma */
 	public function index()
 	{
 
@@ -31,11 +33,33 @@ class FormApp extends CI_Controller {
 
         /* Arraydeki bilgileri modele taşıyacak yapı */
 
+
         $insert = $this->FormApp_Model->insert($data);
-        if($insert)
+        if ($insert)
+        {
+            redirect("formapp/listele");
+        }
+        else
         {
             redirect("formapp");
         }
         
     }
+
+    /* list view ekrana basma */
+    public function listele()
+    {
+
+        $items = $this->FormApp_Model->get_all();
+
+        $viewData = array(
+
+            "items" => $items
+
+        );
+
+        $this->load->view("list", $viewData);
+    }
+
+
 }

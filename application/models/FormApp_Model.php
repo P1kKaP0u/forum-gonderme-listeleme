@@ -18,6 +18,11 @@ class FormApp_Model extends CI_Model
             
     }
 
+    public function get_all()
+    {
+        return $this->db->get( $this->table_name )->result();
+    }
+
 
 
 

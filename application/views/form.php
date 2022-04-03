@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <textarea placeholder="Enter your message" rows="4" cols="50" id="message-a3f0" name="message" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required=""></textarea>
                       </div>
                       <div class="u-form-group u-form-submit">
-                        <button class="u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-base u-white u-btn-1" >
+                        <button class="  u-border-none u-btn u-btn-submit u-button-style u-hover-palette-1-base u-white u-btn-1" >
                           <span>
                             Form Gönder
                           </span>
